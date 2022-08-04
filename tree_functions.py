@@ -132,6 +132,10 @@ def decode_string(input_string, tree : HuffmanNode):
 					break
 				current_node = current_node.right_child
 
+			else:
+				print('Error: Invalid character.')
+				break
+
 		# add the character to the decoded string
 		decoded_string += current_node.character
 

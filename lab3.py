@@ -77,7 +77,7 @@ def main():
 			continue
 
 		if mode == 'ME': # manual encode
-			manual_text = input("Enter a word/sentence to encode: ").upper() # convert input to uppercase
+			manual_text = input("Enter a text to encode: ").upper() # convert input to uppercase
 			print()
 			encoded = encode_string(manual_text, huffman_tree)
 			print('Encoded text:', encoded)
@@ -85,7 +85,7 @@ def main():
 			continue
 
 		if mode == 'MD': # manual decode
-			manual_text = input("Enter a word/sentence to decode: ").upper() # convert input to uppercase
+			manual_text = input("Enter text to decode: ").upper() # convert input to uppercase
 			print()
 			decoded = decode_string(manual_text, huffman_tree)
 			print('Decoded text:', decoded)
