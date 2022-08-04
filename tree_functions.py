@@ -88,14 +88,13 @@ def encode_string(input_string, tree : HuffmanNode):
 			encoded_string += '\n'
 			continue
 		
-		# if character is not in ASCII range A-Z
+		# if character is not in ASCII range A-Z, skip it
 		if ord(character) not in range(65, 91):
 			continue
 		
-		# start at the root node for each character
+		# start at the root node
 		current_node = tree
 
-		# Each left child assignment is 0, each right child assignment is 1
 		while len(current_node.character) >= 2: # if the length of the character is greater than 1, it is not a leaf node
 
 			if character in current_node.left_child.character: # if the character is in the left child
