@@ -58,11 +58,11 @@ def main():
 			# pass in tree and clear text to encode
 			encoded_text = encode_string(clear_text, huffman_tree) ############## error is occuring here #############
 
-			# print('The encoded text is:')
-			# print(encoded_text)
+			print('The encoded text is:')
+			print(encoded_text)
 			
 			# prompt for write to file
-			# write_encoded_text(clear_text, encoded_text)
+			write_encoded_text(clear_text, encoded_text)
 			continue
 
 		if mode == 'D': # file mode - Decode
@@ -76,7 +76,7 @@ def main():
 
 			continue
 
-		if mode == 'M': # manual mode
+		if mode == 'ME': # manual encode
 			manual_text = input("Enter a word/sentence to encode: ").upper() # convert input to uppercase
 			print()
 			encoded = encode_string(manual_text, huffman_tree)
@@ -84,6 +84,14 @@ def main():
 			print()
 			continue
 
+		if mode == 'MD': # manual decode
+			manual_text = input("Enter a word/sentence to decode: ").upper() # convert input to uppercase
+			print()
+			decoded = decode_string(manual_text, huffman_tree)
+			print('Decoded text:', decoded)
+			print()
+			continue
+		
 		if mode == 'Q': # quit the program
 			print('Exiting program...')
 			break

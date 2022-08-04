@@ -1,5 +1,6 @@
 """This is the script that contains the functions for gathering user input."""
 
+
 def get_frequency_text():
 	"""This function prompts the user for the name of the character frequency file and returns the character frequency
 	in a dictionary. """
@@ -74,10 +75,10 @@ def get_user_mode():
 	print('What mode would you like to run the program in?')
 	
 	while True:
-		mode = input("Press E to (E)ncode a file, D to (D)ecode a file, M for (M)anual Input, or Q to (Q)uit: ")
+		mode = input("Press E to Encode a file, D to Decode a file, ME for Manual Encode, MD for Manual Decode, or Q to Quit: ")
 		mode = mode.upper()
 
-		if mode == 'E' or mode == 'D' or mode == 'M' or mode == 'Q':
+		if mode == 'E' or mode == 'D' or mode == 'ME' or mode == 'MD' or mode == 'Q':
 			return mode
 		
 		else:
