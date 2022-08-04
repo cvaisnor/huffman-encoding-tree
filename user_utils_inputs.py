@@ -30,7 +30,7 @@ def get_frequency_text():
 	return frequency_dict
 
 
-def get_clear_text():
+def get_clear_text_file():
 	"""This function prompts the user for the name of the clear text file and returns the contents."""
 	while True:
 		file_input = input("Enter file name containing regular text to encode: ")
@@ -43,13 +43,11 @@ def get_clear_text():
 
 	with open(file_input, 'r') as f_in:
 		clear_text = f_in.read()
-	
-	print("\nThe clear text is:")
-	print(clear_text)
+
 	return clear_text
 
 
-def get_encoded_text():
+def get_encoded_text_file():
 	"""This function prompts the user for the name of the encoded text file and returns the contents."""
 	while True:
 		file_input = input("Enter file name of text to decode: ")
@@ -63,8 +61,6 @@ def get_encoded_text():
 	with open(file_input, 'r') as f_in:
 		encoded_text = f_in.read()
 
-	print("\nThe encoded text is:")
-	print(encoded_text)
 	return encoded_text
 
 
@@ -72,13 +68,15 @@ def get_encoded_text():
 def get_user_mode():
 	"""This function prompts the user for the mode of the program and returns the mode."""
 	
-	print('What mode would you like to run the program in?')
+	print('What mode would you like to run the program in? Enter corresponding letter(s):')
+	print()
 	
 	while True:
-		mode = input("Press E to Encode a file, D to Decode a file, ME for Manual Encode, MD for Manual Decode, or Q to Quit: ")
+		print('(E) Encode a file, (D) Decode a file, (ME) Manual Encode, (MD) Manual Decode.')
+		mode = input("(P) Print Huffman Binary Tree in Preorder Traversal, (Q) to Quit: ")
 		mode = mode.upper()
 
-		if mode == 'E' or mode == 'D' or mode == 'ME' or mode == 'MD' or mode == 'Q':
+		if mode == 'E' or mode == 'D' or mode == 'ME' or mode == 'MD' or 'P' or mode == 'Q':
 			return mode
 		
 		else:

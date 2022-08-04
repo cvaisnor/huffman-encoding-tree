@@ -10,7 +10,7 @@ def print_huffman_tree(tree : HuffmanNode):
 
  # base case, leaf node
 	if tree.left_child is None and tree.right_child is None:
-		print('This is a leaf node. Moving to next node in preorder traversal.')
+		print('This is a leaf node.')
 		print()
 		return 
 	
@@ -70,21 +70,29 @@ def encode_string(input_string, tree : HuffmanNode):
 	The encoding is done by traversing the tree and adding 0 for the left child and 1 for the right child.
 	The encoding is returned as a string."""
 
+	print('The clear text is: ')
+	print(input_string)
+	print()
+
+	# make sure input is upper case
+	input_string = input_string.upper()
+
 	# create an empty string
 	encoded_string = ''
-
+		
 	# traverse the tree per character
 	for character in input_string:
-		# if character is a space, comma, or period, go to the next character
-		if character == ' ' or character == ',' or character == '.':
-			continue
-		
+
 		# if new line, go to the next line
-		elif character == '\n':
+		if character == '\n':
 			encoded_string += '\n'
 			continue
-
-		# start at the root node
+		
+		# if character is not in ASCII range A-Z
+		if ord(character) not in range(65, 91):
+			continue
+		
+		# start at the root node for each character
 		current_node = tree
 
 		# Each left child assignment is 0, each right child assignment is 1
@@ -95,12 +103,17 @@ def encode_string(input_string, tree : HuffmanNode):
 				if current_node.left_child is None:
 					break
 				current_node = current_node.left_child
+				continue
 
 			elif character in current_node.right_child.character: # if the character is in the right child
 				encoded_string += '1'
 				if current_node.right_child is None:
 					break
 				current_node = current_node.right_child
+				continue
+	
+	print('The encoded text is:')
+	print(encoded_string)
 	
 	return encoded_string
 
@@ -110,12 +123,24 @@ def decode_string(input_string, tree : HuffmanNode):
 	The decoding is done by traversing the tree and adding 0 for the left child and 1 for the right child.
 	The decoding is returned as a string."""
 
+	print('The encoded text is: ')
+	print(input_string)
+
 	# create an empty string
 	decoded_string = ''
 
 	# traverse the tree per character
 	for character in input_string:
-		
+
+		# if new line, go to the next line
+		if character == '\n':
+			decoded_string += '\n'
+			continue
+
+		if character != '0' or character != '1':
+			print('Invalid character, skipping.')
+			continue
+
 		# start at the root node
 		current_node = tree
 
@@ -126,17 +151,18 @@ def decode_string(input_string, tree : HuffmanNode):
 				if current_node.left_child is None:
 					break
 				current_node = current_node.left_child
+				continue
 
 			elif character == '1': # if the character is 1
 				if current_node.right_child is None:
 					break
 				current_node = current_node.right_child
-
-			else:
-				print('Error: Invalid character.')
-				break
+				continue
 
 		# add the character to the decoded string
 		decoded_string += current_node.character
+
+	print('The decoded text is:')
+	print(decoded_string)
 
 	return decoded_string
