@@ -143,7 +143,7 @@ def decode_string(input_string, tree : HuffmanNode):
 			continue
 
 		elif character == '0': # if the character is 0, go to the left child
-				current_node = current_node.left_child
+			current_node = current_node.left_child
 			if len(current_node.character) == 1: # if at a leaf node
 				decoded_string += current_node.character # add char
 				current_node = tree # reset to root
@@ -151,7 +151,7 @@ def decode_string(input_string, tree : HuffmanNode):
 				continue # go to next character
 
 		else: # go to the right child
-				current_node = current_node.right_child
+			current_node = current_node.right_child
 			if len(current_node.character) == 1: # if at a leaf node
 				decoded_string += current_node.character # add char
 				current_node = tree # reset to root
