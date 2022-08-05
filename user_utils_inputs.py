@@ -1,7 +1,7 @@
 """This is the script that contains the functions for gathering user input."""
 
 
-def get_frequency_text():
+def get_frequency_text() -> dict:
 	"""This function prompts the user for the name of the character frequency file and returns the character frequency
 	in a dictionary. """
 	while True:
@@ -10,7 +10,7 @@ def get_frequency_text():
 			break
 		
 		if file_input.upper() == 'Q':
-			return None
+			return 'Q'
 
 		else:
 			print("Error: File name not recognized. Format should be 'filename.txt' Please try again.")
@@ -30,7 +30,7 @@ def get_frequency_text():
 	return frequency_dict
 
 
-def get_clear_text_file():
+def get_clear_text_file() -> str:
 	"""This function prompts the user for the name of the clear text file and returns the contents."""
 	while True:
 		file_input = input("Enter file name containing regular text to encode: ")
@@ -47,7 +47,7 @@ def get_clear_text_file():
 	return clear_text
 
 
-def get_encoded_text_file():
+def get_encoded_text_file() -> str:
 	"""This function prompts the user for the name of the encoded text file and returns the contents."""
 	while True:
 		file_input = input("Enter file name of text to decode: ")
@@ -64,7 +64,7 @@ def get_encoded_text_file():
 	return encoded_text
 
 
-def get_user_mode():
+def get_user_mode() -> str:
 	"""This function prompts the user for the mode of the program and returns the mode."""
 	
 	print('What mode would you like to run the program in? Enter corresponding letter(s):')

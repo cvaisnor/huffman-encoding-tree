@@ -1,7 +1,7 @@
 """The script contains the functions for writing the encoded/decoded text to console/file."""
 
 
-def write_encoded_text(clear_text, encoded_text):
+def write_encoded_text(clear_text: str, encoded_text: str):
 	"""This function prompts the user for the name of the output text file and writes the contents to a file. """
 	
 	prompt = input('Would you like to write the clear and encoded text to a file? (Y/N): ').upper()
@@ -33,7 +33,7 @@ def write_encoded_text(clear_text, encoded_text):
 	return
 
 
-def write_decoded_text(encoded_text, decoded_text):
+def write_decoded_text(encoded_text: str, decoded_text: str):
 	"""This function prompts the user for the name of the output text file and writes the contents to a file. """
 	
 	prompt = input('Would you like to write the encoded and decoded text to a file? (Y/N): ').upper()

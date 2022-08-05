@@ -24,7 +24,7 @@ def print_huffman_tree(tree : HuffmanNode):
 		print_huffman_tree(tree.right_child)
 
 
-def create_huffman_tree(frequency_dict: dict):
+def create_huffman_tree(frequency_dict: dict) -> HuffmanNode:
 	"""This function creats a Full Huffman Encoding Binary Tree based on character frequencies from a dictionary using a priority queue.
 	The top of the queue is the lowest frequency character. The tree is built by adding the two lowest frequency characters to the tree,
 	concatinating the characters, and then adding the two new nodes to the queue with the respective left and right child nodes.
@@ -63,7 +63,7 @@ def create_huffman_tree(frequency_dict: dict):
 	return pq.queue[0]
 
 
-def encode_string(input_string, tree : HuffmanNode):
+def encode_string(input_string: str, tree : HuffmanNode) -> str:
 	"""This function encodes a string using a Huffman Encoding Tree. The root is passed in as a parameter.
 	The encoding is done by traversing the tree and adding 0 for the left child and 1 for the right child.
 	The encoding is returned as a string."""
@@ -114,7 +114,7 @@ def encode_string(input_string, tree : HuffmanNode):
 	return encoded_string
 
 
-def decode_string(input_string, tree : HuffmanNode):
+def decode_string(input_string: str, tree : HuffmanNode) -> str:
 	"""This function decodes a string using a Huffman Encoding Tree. The root is passed in as a parameter.
 	The decoding is done by traversing the tree moving one step left or right per input character. When a
 	leaf node is reached, the character is added to the decoded string and the root is reset to the root node."""

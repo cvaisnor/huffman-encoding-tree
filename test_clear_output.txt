@@ -1,0 +1,11 @@
+The clear text is: 
+xxx yyy zzz
+xyz'
+xx!yy.
+x, x, z.
+
+The encoded text is: 
+000101010111111
+01011
+001010
+0011

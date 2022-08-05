@@ -28,7 +28,7 @@ def main():
 	# get the name of the frequency file, returns a dictionary of the character frequency
 	frequency_dict = get_frequency_text()
 	
-	if frequency_dict == None: # if Quit is chosen
+	if frequency_dict == 'Q': # if Quit is chosen
 		print('Exiting program...')
 		return
 
