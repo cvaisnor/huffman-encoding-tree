@@ -5,7 +5,7 @@
 
 ### Program Description ###
 """This is my program for Lab 3 - A Huffman Encoding Tree.
-The user prompted to enter the name of the file with the character frequency table.
+The user is prompted to enter the name of the file with the character frequency table.
 The program will read the frequency file and create a Huffman Tree.
 
 ----- Main Menu -----
