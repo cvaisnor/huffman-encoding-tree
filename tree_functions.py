@@ -2,7 +2,6 @@
 from object_classes import HuffmanNode, PriorityQueue
 
 
-# function to print the nodes of a Huffman Encoding Tree in preorder traversal
 def print_huffman_tree(tree : HuffmanNode):
 	"""This function prints the nodes of a Huffman Encoding Tree in preorder traversal. (Root, Left, Right) """
 

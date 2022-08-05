@@ -64,7 +64,6 @@ def get_encoded_text_file():
 	return encoded_text
 
 
-
 def get_user_mode():
 	"""This function prompts the user for the mode of the program and returns the mode."""
 	
