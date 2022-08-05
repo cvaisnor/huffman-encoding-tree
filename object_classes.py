@@ -24,14 +24,14 @@ class HuffmanNode:
 		print('Right Child:', self.right_child.character)
 
 
-class PriorityQueue():
+class PriorityQueue:
 	"""This is a class for a priority queue. The top node is the node with the lowest frequency."""
 	
 	def __init__(self):
 		"""This is the constructor for a priority queue."""
 		self.queue = []
 
-	def enqueue(self, node, frequency):
+	def enqueue(self, node: HuffmanNode):
 		"""This function adds a node to the priority queue."""
 		self.queue.append(node)
 		self.queue.sort(key=lambda x: x.frequency)

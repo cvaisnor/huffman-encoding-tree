@@ -26,6 +26,6 @@ When encoding/decoding from a file, the inputs and outputs are printed to the co
 Encoding/decoding a manual input is an **enhancement** I made which helps with testing.
 
 # Note:
-The folder ( */broken_files_from_canvas* ) contains the original files that were uploaded to the canvas lab page. At the end of each line in each file is an 'artifacted' bit from the Windows OS it was written on. Both MacOS and Linux do not use that same 'new line' character, and Python cannot read that bit in default form.
+The folder ( */broken_files_from_canvas* ) contains the original files that were uploaded to the canvas lab page. At the end of each line in each file is an 'artifact' bit from the Windows OS it was written on. Both macOS and Linux do not use that same 'new line' character, and Python cannot read that bit in default form.
 
 I have created **fixed** versions of those files without that unreadable bit. The new versions are in the main directory with the same names.

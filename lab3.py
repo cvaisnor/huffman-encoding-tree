@@ -32,7 +32,7 @@ def main():
 		print('Exiting program...')
 		return
 
-	print('(Punctionation is not included in the frequency table and will be ignored)')
+	print('(Punctuation is not included in the frequency table and will be ignored)')
 	print()
 
 	# create a Huffman Encoding Tree from frequency dictionary
