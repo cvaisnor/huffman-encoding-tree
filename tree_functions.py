@@ -64,7 +64,6 @@ def create_huffman_tree(frequency_dict: dict):
 	return pq.queue[0]
 
 
-# encode a string using a Huffman Encoding Tree,
 def encode_string(input_string, tree : HuffmanNode):
 	"""This function encodes a string using a Huffman Encoding Tree. The root is passed in as a parameter.
 	The encoding is done by traversing the tree and adding 0 for the left child and 1 for the right child.
@@ -95,71 +94,74 @@ def encode_string(input_string, tree : HuffmanNode):
 		# start at the root node
 		current_node = tree
 
-		while len(current_node.character) >= 2: # if the length of the character is greater than 1, it is not a leaf node
+		while len(current_node.character) > 1: # if the length of the character is greater than 1, it is not a leaf node
 
 			if character in current_node.left_child.character: # if the character is in the left child
-				encoded_string += '0'
-				if current_node.left_child is None:
-					break
 				current_node = current_node.left_child
+				encoded_string += '0'
 				continue
 
 			elif character in current_node.right_child.character: # if the character is in the right child
-				encoded_string += '1'
-				if current_node.right_child is None:
-					break
 				current_node = current_node.right_child
+				encoded_string += '1'
 				continue
+	
+			else: # in case the frequency table does not have the entire ASCII range A-Z, ex: test_table.txt
+				print('Error: Character not in tree, skipping: ', character)
+				break
 	
 	print('The encoded text is:')
 	print(encoded_string)
-	
 	return encoded_string
 
-# function to decode a string using a Huffman Encoding Tree
+
 def decode_string(input_string, tree : HuffmanNode):
 	"""This function decodes a string using a Huffman Encoding Tree. The root is passed in as a parameter.
-	The decoding is done by traversing the tree and adding 0 for the left child and 1 for the right child.
-	The decoding is returned as a string."""
+	The decoding is done by traversing the tree moving one step left or right per input character. When a
+	leaf node is reached, the character is added to the decoded string and the root is reset to the root node."""
 
 	print('The encoded text is: ')
 	print(input_string)
+	print()
 
 	# create an empty string
 	decoded_string = ''
 
+	# start at the root node
+	current_node = tree
+
 	# traverse the tree per character
 	for character in input_string:
 
-		# if new line, go to the next line
+		# if new line, go to next character
 		if character == '\n':
 			decoded_string += '\n'
 			continue
 
-		if character != '0' or character != '1':
+		elif character != '0' and character != '1': # if character is not 0 or 1, go to next character
 			print('Invalid character, skipping.')
 			continue
 
-		# start at the root node
-		current_node = tree
-
-		# Each left child assignment is 0, each right child assignment is 1
-		while len(current_node.character) >= 2: # if the length of the character is greater than 1, it is not a leaf node
-
-			if character == '0': # if the character is 0
-				if current_node.left_child is None:
-					break
+		elif character == '0': # if the character is 0, go to the left child
 				current_node = current_node.left_child
-				continue
+			if len(current_node.character) == 1: # if at a leaf node
+				decoded_string += current_node.character # add char
+				current_node = tree # reset to root
+			else:
+				continue # go to next character
 
-			elif character == '1': # if the character is 1
-				if current_node.right_child is None:
-					break
+		else: # go to the right child
 				current_node = current_node.right_child
-				continue
+			if len(current_node.character) == 1: # if at a leaf node
+				decoded_string += current_node.character # add char
+				current_node = tree # reset to root
+			else:
+				continue # go to next character
 
-		# add the character to the decoded string
-		decoded_string += current_node.character
+
+	if current_node != tree:
+		print('Error: Input string is not complete.')
+		return None
 
 	print('The decoded text is:')
 	print(decoded_string)

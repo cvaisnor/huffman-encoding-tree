@@ -75,7 +75,7 @@ def main():
 
 		elif mode == 'ME': # Manual Mode - Encode
 			while True:
-				manual_text = input("Enter a text to encode or '!' to return to menu: ")
+				manual_text = input("Enter text to encode or '!' to return to menu: ")
 				print()
 				if manual_text == '!':
 					break
