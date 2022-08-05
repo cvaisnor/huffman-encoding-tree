@@ -5,18 +5,18 @@
 
 ### Program Description ###
 """This is my program for Lab 3 - A Huffman Encoding Tree.
-The user will be prompted to enter the name of the file with the character frequency list.
+The user prompted to enter the name of the file with the character frequency table.
 The program will read the frequency file and create a Huffman Tree.
 
-If they choose to encode a file, the user will be prompted to enter the name of the file to encode.
-The program will read the file and encode it using the Huffman Tree.
-The program will print out the input text and the encoded text to the console.
-The program will prompt the user if they would like to write the encoded text to a file.
+----- Main Menu -----
+If they choose to encode/decode a file, the user will be prompted to enter the name of the file to encode/decode.
+The program will read the file and encode/decode it using the Huffman Tree.
+The program will print out the input text and the encoded/decoded text to the console.
+The program will prompt the user if they would like to write the encoded/decoded text to a file.
 
-If they choose to decode a file, the user will be prompted to enter the name of the file to decode.
-The program will read the file and decode it using the Huffman Tree.
-The program will print out the input text and the decoded text to the console.
-The program will prompt the user if they would like to write the decoded text to a file."""
+The user can manually encode/decode text using the Huffman Tree.
+The user can print the Huffman Tree in preorder traversal.
+The user can quit the program at any time."""
 
 from user_utils_inputs import get_frequency_text, get_user_mode, get_clear_text_file, get_encoded_text_file
 from user_utils_outputs import write_encoded_text, write_decoded_text
@@ -49,7 +49,7 @@ def main():
 			print('This is the Huffman Encoding Tree Printed in Preorder.')
 			print('----------- Root, Left Child, Right Child -----------')
 			print()
-			print_huffman_tree(huffman_tree)
+			print_huffman_tree(huffman_tree) # recursive function to print the tree
 			print()
 			continue
 
@@ -103,9 +103,9 @@ def main():
 			continue
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': # driver of the program
 	print('Lab 3 - Huffman Encoding Tree')
 	print('Programmer: Chris Vaisnor')
 	print()
 
-	main()
+	main() # call the main function

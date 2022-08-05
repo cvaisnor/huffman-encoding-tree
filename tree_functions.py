@@ -3,7 +3,8 @@ from object_classes import HuffmanNode, PriorityQueue
 
 
 def print_huffman_tree(tree : HuffmanNode):
-	"""This function prints the nodes of a Huffman Encoding Tree in preorder traversal. (Root, Left, Right) """
+	"""This function prints the nodes of a Huffman Encoding Tree in preorder traversal. (Root, Left, Right)
+	Input: A Huffman Encoding Tree (HuffmanNode). Nothing is returned."""
 
 	print('Root:', tree.character, ',', tree.frequency)
 
@@ -28,7 +29,9 @@ def create_huffman_tree(frequency_dict: dict) -> HuffmanNode:
 	"""This function creats a Full Huffman Encoding Binary Tree based on character frequencies from a dictionary using a priority queue.
 	The top of the queue is the lowest frequency character. The tree is built by adding the two lowest frequency characters to the tree,
 	concatinating the characters, and then adding the two new nodes to the queue with the respective left and right child nodes.
-	The tree is built until there is only one node left in the queue."""
+	The tree is built until there is only one node left in the queue.
+	Input: A dictionary of characters and their frequencies.
+	Output: A Huffman Encoding Tree (HuffmanNode)."""
 
 	# create a priority queue
 	pq = PriorityQueue()
@@ -117,7 +120,8 @@ def encode_string(input_string: str, tree : HuffmanNode) -> str:
 def decode_string(input_string: str, tree : HuffmanNode) -> str:
 	"""This function decodes a string using a Huffman Encoding Tree. The root is passed in as a parameter.
 	The decoding is done by traversing the tree moving one step left or right per input character. When a
-	leaf node is reached, the character is added to the decoded string and the root is reset to the root node."""
+	leaf node is reached, the character is added to the decoded string and the root is reset to the root node.
+	The decoded string is returned as a string."""
 
 	print('The encoded text is: ')
 	print(input_string)
