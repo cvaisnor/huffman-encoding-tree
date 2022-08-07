@@ -4,6 +4,7 @@
 def get_frequency_text() -> dict:
 	"""This function prompts the user for the name of the character frequency file and returns the character frequency
 	in a dictionary. """
+	
 	while True:
 		file_input = input("Enter file name containing character frequencies or Q to (Q)uit: ")
 		if file_input.endswith('.txt'):
@@ -69,7 +70,6 @@ def get_user_mode() -> str:
 	
 	print('What mode would you like to run the program in? Enter corresponding letter(s):')
 	print()
-	
 	while True:
 		print('(E) Encode a file, (D) Decode a file, (ME) Manual Encode, (MD) Manual Decode.')
 		mode = input("(P) Print Huffman Binary Tree in Preorder Traversal, (Q) to Quit: ")

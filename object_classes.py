@@ -16,7 +16,7 @@ class HuffmanNode:
 
 	def print_node(self):
 		"""This function prints the individual node to the console."""
-
+		
 		print('This node contains:')
 		print('Frequency:', self.frequency)
 		print('Character:', self.character)
