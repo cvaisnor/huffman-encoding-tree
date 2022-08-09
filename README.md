@@ -17,9 +17,9 @@ First prompt is for the frequency table file name (FreqTable.txt)
 
 Then the user moves to the Main Menu **enhancement**.
 
-## -------------------Main Menu has 6 options -------------------
+## -------------------Main Menu has 7 options -------------------
 
-Encode/Decode A File | Encode/Decode A Manual Input | Print Tree in Preorder | Quit
+Encode/Decode A File | Encode/Decode A Manual Input | Print Tree in Preorder | Print Huffman Encoding of Each Character | Quit
 
 When encoding/decoding from a file, the inputs and outputs are printed to the console and the user has an option to save to a file as well. 
 
