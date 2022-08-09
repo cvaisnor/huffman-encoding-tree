@@ -71,11 +71,11 @@ def get_user_mode() -> str:
 	print('What mode would you like to run the program in? Enter corresponding letter(s):')
 	print()
 	while True:
-		print('(E) Encode a file, (D) Decode a file, (ME) Manual Encode, (MD) Manual Decode.')
-		mode = input("(P) Print Huffman Binary Tree in Preorder Traversal, (Q) to Quit: ")
+		print('(E) Encode a File, (D) Decode a File, (ME) Manual Encode, (MD) Manual Decode.')
+		mode = input("(PT) Print Huffman Tree in Preorder Traversal, (PE) Print Huffman Encoding of Each Character, (Q) to Quit: ")
 		mode = mode.upper()
 
-		if mode == 'E' or mode == 'D' or mode == 'ME' or mode == 'MD' or 'P' or mode == 'Q':
+		if mode == 'E' or mode == 'D' or mode == 'ME' or mode == 'MD' or mode == 'PT' or mode == 'PE' or mode == 'Q':
 			return mode
 		
 		else:

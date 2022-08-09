@@ -20,7 +20,7 @@ The user can quit the program at any time."""
 
 from user_utils_inputs import get_frequency_text, get_user_mode, get_clear_text_file, get_encoded_text_file
 from user_utils_outputs import write_encoded_text, write_decoded_text
-from tree_functions import create_huffman_tree, print_huffman_tree, encode_string, decode_string
+from tree_functions import create_huffman_tree, print_huffman_tree, encode_string, decode_string, print_encoding_per_character
 
 def main():
 	"""This is the main function."""
@@ -45,11 +45,19 @@ def main():
 		mode = get_user_mode() # get user mode preference
 		print()
 
-		if mode == 'P': # print the tree
+		if mode == 'PT': # print the tree in preorder traversal
 			print('This is the Huffman Encoding Tree Printed in Preorder.')
 			print('----------- Root, Left Child, Right Child -----------')
 			print()
 			print_huffman_tree(huffman_tree) # recursive function to print the tree
+			print()
+			continue
+
+		if mode == 'PE': # print the Huffman encoding of each character
+			print('This is the encoding of each character in the frequency table.')
+			print('----------- Character, Encoding -----------')
+			print()
+			print_encoding_per_character(huffman_tree)
 			print()
 			continue
 

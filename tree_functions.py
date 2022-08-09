@@ -170,3 +170,29 @@ def decode_string(input_string: str, tree: HuffmanNode) -> str:
 	print(decoded_string)
 
 	return decoded_string
+
+
+def print_encoding_per_character(tree: HuffmanNode):
+	"""This function prints the encoding for each character in the tree in preorder traversal."""
+
+	print('The encoding for each character is:')
+
+	for character in tree.character:
+		print(character, ': ', end='')
+		current_node = tree
+		while len(current_node.character) > 1: # if the length of the character is greater than 1, it is not a leaf node
+			if character in current_node.left_child.character: # if the character is in the left child
+				current_node = current_node.left_child
+				print('0', end='')
+				continue
+
+			elif character in current_node.right_child.character: # if the character is in the right child
+				current_node = current_node.right_child
+				print('1', end='')
+				continue
+
+			else: # in case the frequency table does not have the entire ASCII range A-Z, ex: test_table.txt
+				print('Error: Character not in tree, skipping: ', character)
+				break
+
+		print()
